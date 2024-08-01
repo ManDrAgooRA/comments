@@ -2,7 +2,7 @@ import { configureStore, ThunkAction, Action, combineReducers } from '@reduxjs/t
 import { charactersReducer } from './characters/charactersReducer';
 
 const rootReducer = combineReducers({
-  charachters: charactersReducer,
+  characters: charactersReducer,
 });
 
 export const store = configureStore({
