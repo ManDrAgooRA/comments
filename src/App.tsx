@@ -4,6 +4,8 @@ import { getCharactersListThunk } from './store/characters/thunks';
 import Loader from './store/components/ui/Loader/Loader';
 import './App.css'
 import { getIsLoading } from './store/app/selectors';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './router';
 
 function App() {
   const dispatch = useAppDispatch();
@@ -19,7 +21,7 @@ function App() {
 
   return (
     <>
-      <h1>App component</h1>
+      <RouterProvider router={router} />
     </>
   );
 }

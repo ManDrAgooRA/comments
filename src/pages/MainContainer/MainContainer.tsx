@@ -1,9 +1,13 @@
+import { Outlet } from "react-router-dom"
+
 const MainContainer = () => {
   return (
     <>
-      <p>Header</p>
-      <div>MainContainer</div>
-      <p>Footer</p>
+      <header>Header</header>
+      <main>
+        <Outlet />
+      </main>
+      <footer>Footer</footer>
     </>
   )
 }
