@@ -1,7 +1,9 @@
 import { configureStore, ThunkAction, Action, combineReducers } from '@reduxjs/toolkit';
 import { charactersReducer } from './characters/charactersReducer';
+import { appReducer } from './app/appReducer';
 
 const rootReducer = combineReducers({
+  app: appReducer,
   characters: charactersReducer,
 });
 
