@@ -10,8 +10,6 @@ export const getCommentListThunk = createAsyncThunk<ICommentsResponse>(
         const { comments } = getState() as RootState;
         const { limit } = comments;
         const response = await getCommentsListAPI(limit);
-
-        console.log(response.data);
         
         return response.data;
     },
