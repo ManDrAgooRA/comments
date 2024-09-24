@@ -1,7 +1,5 @@
-const Endpoints = {
-  CHARACTERS: {
-    LIST: 'people',
+export const Endpoints = {
+  COMMENTS: {
+    LIST: 'comments',
   }
 };
-
-export default Endpoints
