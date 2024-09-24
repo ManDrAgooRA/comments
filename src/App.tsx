@@ -1,18 +1,18 @@
 import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from './store/utils/hooks/storeHooks';
-import { getCharactersListThunk } from './store/characters/thunks';
-import Loader from './store/components/ui/Loader/Loader';
-import './App.css'
+import { useAppDispatch, useAppSelector } from './utils/hooks/storeHooks';
+import Loader from './components/Loader/Loader';
+import { getCommentListThunk } from './store/comments/thunks';
 import { getIsLoading } from './store/app/selectors';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './router';
+import './App.css'
 
 function App() {
   const dispatch = useAppDispatch();
   const isLoading = useAppSelector(getIsLoading);
 
   useEffect(() => {
-    dispatch(getCharactersListThunk());
+    dispatch(getCommentListThunk());
   }, [])
 
   if(isLoading) {
