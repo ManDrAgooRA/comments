@@ -1,6 +1,5 @@
 import { Outlet } from "react-router-dom"
 import { Header } from "../../components/Header/Header"
-import { Footer } from "../../components/Footer/Footer"
 
 const MainContainer = () => {
   return (
@@ -9,7 +8,6 @@ const MainContainer = () => {
       <main>
         <Outlet />
       </main>
-      <Footer/>
     </>
   )
 }

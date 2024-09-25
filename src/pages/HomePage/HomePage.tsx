@@ -1,7 +1,10 @@
-const HomePage = () => {
+import { Container } from "@mui/material"
+import { CommentsList } from "../../components/CommentsList/CommentsList";
+
+export const HomePage = () => {
   return (
-    <div>HomePage</div>
+    <Container>
+      <CommentsList />
+    </Container>
   )
 }
-
-export default HomePage

@@ -3,7 +3,7 @@ import { Suspense } from "react";
 
 import MainContainer from "../pages/MainContainer/MainContainer";
 import Loader from "../components/Loader/Loader";
-import HomePage from "../pages/HomePage/HomePage";
+import { HomePage } from "../pages/HomePage/HomePage";
 
 export const router = createBrowserRouter([
   {
