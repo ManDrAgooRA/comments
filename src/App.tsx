@@ -5,7 +5,7 @@ import { getCommentListThunk } from './store/comments/thunks';
 import { getIsLoading } from './store/app/selectors';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './router';
-import './App.css'
+import './App.scss'
 
 function App() {
   const dispatch = useAppDispatch();

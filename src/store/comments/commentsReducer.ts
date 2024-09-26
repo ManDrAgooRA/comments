@@ -19,7 +19,7 @@ export const commentsSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getCommentListThunk.fulfilled, (state, action) => {
-        state.commentsList = {...action.payload.comments};
+        state.commentsList = action.payload.comments;
       })
   }
 });
