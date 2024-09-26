@@ -1,3 +1,5 @@
+import { createPortal } from 'react-dom';
+import { useState } from 'react';
 import Grid from '@mui/material/Grid2';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
@@ -8,6 +10,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { Box } from '@mui/material';
 import styles from './CommentItem.module.scss'
+import { Modal } from '../Modal/Modal';
 
 interface ICommentItem {
   fullName: string,
@@ -16,7 +19,14 @@ interface ICommentItem {
 }
 
 export const CommentItem = ({fullName, commentBody, likes}: ICommentItem) => {
+  const [isOpenDeleteModal, setIsOpenDeleteModal] = useState<boolean>(false);
+
+  const handleOpenDeleteModal = () => {
+    setIsOpenDeleteModal(true)
+  }
+
   return (
+    <>
     <Grid size={{ xs: 12, md: 4, xl: 3 }} className={styles['card-item']}>
       <CardHeader
         avatar={
@@ -37,10 +47,17 @@ export const CommentItem = ({fullName, commentBody, likes}: ICommentItem) => {
             {likes}
           </Box>
           <Box className={styles['card-delete']}>
-            <DeleteIcon />
+            <DeleteIcon onClick={() => handleOpenDeleteModal()}/>
           </Box>
         </Box>
       </CardContent>
     </Grid>
+    {createPortal(
+      <Modal isOpen={isOpenDeleteModal} onClose={() => setIsOpenDeleteModal(false)}>
+        <p>This child is placed in the document body.</p>
+      </Modal>,
+      document.body
+    )}
+    </>
   )
 }
