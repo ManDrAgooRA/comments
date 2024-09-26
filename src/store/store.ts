@@ -1,8 +1,10 @@
 import { configureStore, ThunkAction, Action, combineReducers } from '@reduxjs/toolkit';
-import { charactersReducer } from './characters/charactersReducer';
+import { commentsReducer } from './comments/commentsReducer';
+import { appReducer } from './app/appReducer';
 
 const rootReducer = combineReducers({
-  charachters: charactersReducer,
+  app: appReducer,
+  comments: commentsReducer,
 });
 
 export const store = configureStore({

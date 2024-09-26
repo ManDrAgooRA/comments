@@ -1,0 +1,59 @@
+.card {
+  &-item {
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    border: 1px solid #bebebe;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+  }
+
+  &-header {
+    border-bottom: 1px solid #bebebe;
+  }
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1; 
+  }
+
+  &-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & svg {
+      fill: #757575
+    }
+  }
+
+  &-heart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & svg {
+      margin-right: 4px;
+    }
+  }
+
+  &-delete {
+    transition: .4s;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -ms-transition: .4s;
+    -o-transition: .4s;
+
+    & svg {
+      &:hover {
+        cursor: pointer;
+        fill: red;
+      }
+    }
+  }
+}
