@@ -18,3 +18,10 @@ export interface ICommentsResponse {
     skip: number,
     total: number,
 }
+
+export interface ICommentDeleteResponse {
+    id: number,
+    title: string,
+    isDeleted: boolean,
+    deletedOn: string
+}

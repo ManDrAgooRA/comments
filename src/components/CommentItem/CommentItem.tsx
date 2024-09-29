@@ -11,14 +11,16 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import { Box } from '@mui/material';
 import styles from './CommentItem.module.scss'
 import { Modal } from '../Modal/Modal';
+import { DeleteComment } from '../DeleteComment/DeleteComment';
 
 interface ICommentItem {
   fullName: string,
   commentBody: string,
   likes: number
+  id: number;
 }
 
-export const CommentItem = ({fullName, commentBody, likes}: ICommentItem) => {
+export const CommentItem = ({fullName, commentBody, likes, id}: ICommentItem) => {
   const [isOpenDeleteModal, setIsOpenDeleteModal] = useState<boolean>(false);
 
   const handleOpenDeleteModal = () => {
@@ -54,7 +56,7 @@ export const CommentItem = ({fullName, commentBody, likes}: ICommentItem) => {
     </Grid>
     {createPortal(
       <Modal isOpen={isOpenDeleteModal} onClose={() => setIsOpenDeleteModal(false)}>
-        <p>This child is placed in the document body.</p>
+        <DeleteComment commentId={id} onClose={() => setIsOpenDeleteModal(false)}/>
       </Modal>,
       document.body
     )}
