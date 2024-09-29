@@ -9,5 +9,5 @@ export const getCommentsListAPI = async (limit: number): Promise<AxiosResponse<I
 }
 
 export const deleteCommentAPI = async (commentId: number): Promise<AxiosResponse<ICommentDeleteResponse>> => {
-  return axiosInstance.delete(`${Endpoints.COMMENTS.LIST}${commentId}`);
+  return axiosInstance.delete(`${Endpoints.COMMENTS.LIST}/${commentId}`);
 }

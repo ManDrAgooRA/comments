@@ -1,4 +1,6 @@
 import { AnyAction, createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { deleteCommentThunk } from '../comments/thunks';
+import { ICommentDeleteResponse } from '../../utils/interfaces/comments';
 
 export interface IAppStore {
   isLoading: boolean;
@@ -23,6 +25,11 @@ export const appSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+    .addCase(deleteCommentThunk.fulfilled, (state: IAppStore, action: PayloadAction<ICommentDeleteResponse>) => { 
+      if (action.payload.isDeleted) {
+        state.systemMessage = 'Delete simulation completed'
+      }
+    })
     .addMatcher(
       (action: AnyAction) =>
         action?.type?.includes('/pending') &&
