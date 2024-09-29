@@ -10,9 +10,9 @@ export const CommentsList = () => {
     <Grid container spacing={2} sx={{margin: 2}}>
       {
         comments.map((comment) => {
-          const { user, body, likes } = comment
+          const { user, body, likes, id } = comment
           return (
-            <CommentItem key={comment.id} fullName={user.fullName} commentBody={body} likes={likes}/>
+            <CommentItem key={comment.id} fullName={user.fullName} commentBody={body} likes={likes} id={id} />
           )
         })
       }

@@ -1,8 +1,8 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import { getCommentsListAPI } from "../../api/comments/comments";
+import { createAsyncThunk, Dispatch } from "@reduxjs/toolkit";
+import { deleteCommentAPI, getCommentsListAPI } from "../../api/comments/comments";
 import { RootState } from "../store";
 import { ICommentsResponse } from "../../utils/interfaces/comments";
-
+import { setSystemMessage } from "../app/appReducer";
 
 export const getCommentListThunk = createAsyncThunk<ICommentsResponse>(
     'comments/getCommentList:fetch', 
@@ -13,4 +13,15 @@ export const getCommentListThunk = createAsyncThunk<ICommentsResponse>(
 
         return response.data;
     },
-  );
+);
+
+export const deleteCommentThunk = createAsyncThunk<void, number, { dispatch: Dispatch }>(
+    'comments/deleteComment', 
+    async (commentId, {dispatch}) => {
+        const result = await deleteCommentAPI(commentId);
+
+        if (result.isDeleted) {
+            dispatch(setSystemMessage('Delete simulation complete'))
+        }
+    },
+);

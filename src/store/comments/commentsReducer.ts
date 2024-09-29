@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getCommentListThunk } from './thunks';
 import { IComment } from '../../utils/interfaces/comments';
 
@@ -18,7 +18,7 @@ export const commentsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getCommentListThunk.fulfilled, (state, action) => {
+      .addCase(getCommentListThunk.fulfilled, (state: ICommentsStore, action: PayloadAction<{comments: IComment[]}>) => {
         state.commentsList = action.payload.comments;
       })
   }
